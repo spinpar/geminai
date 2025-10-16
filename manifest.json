@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Pop-up GeminAI",
+    "version": "1.0",
+    "description": "An extension to chat with the Gemini API.",
+    
+    "action": { 
+        "default_popup": "structural_popup.html"
+    },
+    
+    "permissions": [
+        "storage" 
+    ]
+}

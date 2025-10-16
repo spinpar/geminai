@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopUp AI</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <button id="settingsBtn" class="icon-btn">⚙️</button>
+
+        <div id="main-content" style="display: none;"> 
+
+            <h3>Pop-up AI</h3>
+        
+            <div id="user-block">
+                <div class="chat-input-group">
+                    <textarea id="promptInput" placeholder="Ask something..." rows="1"></textarea>
+                    
+                    <button id="askBtn">
+                        <img src="./styles/gemini-icon.png" alt="send" id="askIcon">
+                    </button>
+                </div>
+            </div>
+            
+            <div id="ai-block">
+                <br></br>
+                <div id="response-section">
+                    <div id="response">AI response will appear here</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div id="settings-section" style="display: none;">
+            
+            <button id="backBtn" class="icon-btn">
+                <img src="./styles/api-back-icon.png" alt="Back" id="apiBackIcon" style="width: 20px; height: 20px; filter: invert(1);">
+            </button> 
+            
+            <div class="setting-block">
+                <h3>API</h3>
+                <div class="key-input-group">
+                    <input type="password" id="apiKeyInputSettings" placeholder="Gemini API Key">
+                    <button id="saveKeyBtnSettings" class="icon-btn-square">
+                        <img src="./styles/edit-icon.png" alt="Edit" style="width: 20px; height: 20px; filter: invert(1);">
+                    </button>
+                </div>
+                <p id="keyStatusSettings" style="font-size: 1em;"></p> 
+            </div>
+            
+            <div class="setting-block">
+                <h3>API history</h3>
+                <div id="history-box">
+                    <p>Conversation history will appear here.</p>
+                </div>
+            </div>
+
+            <div id="settings-footer">
+                <span id="version-display">version: 1.1</span>
+                
+                <div id="status-group">
+                    <span id="api-status-display" class="status-online">result > ONLINE</span>
+                    <button id="toggle-theme-btn" class="icon-btn-circle">T</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./script/showdown.min.js"></script> 
+    <script src="./script/popup.js"></script>
+</body>
+</html>

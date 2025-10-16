@@ -1,0 +1,405 @@
+/* ===================================================== */
+/* ==================== VARIÁVEIS ====================== */
+/* ===================================================== */
+
+:root {
+    --primary-color: #6b46cf92;
+    --secondary-color: #6DC284;
+    --background-color: #1E1E1E;
+    --card-background: #252526;
+    --text-color: #D4D4D4;
+    --text-secondary: #999999;
+    --border-color: #3C3C3C;
+    --border-radius: 6px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================================================== */
+/* ==================== LAYOUT BASE ==================== */
+/* ===================================================== */
+
+body {
+    width: 600px;
+    min-height: 250px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 12px;
+    overflow: hidden; /* Remove a barra de rolagem externa */
+}
+
+.container {
+    position: relative;
+    padding: 15px;
+    max-height: 670px; /* Conteúdo interno rola até esta altura */
+    overflow-y: auto;
+}
+
+/* ===================================================== */
+/* ===================== TÍTULOS ======================= */
+/* ===================================================== */
+
+h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-top: 0;
+    padding-bottom: 5px;
+}
+
+/* ===================================================== */
+/* ====================== INPUTS ======================= */
+/* ===================================================== */
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1.3em;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+/* Foco */
+input[type="text"]:focus,
+input[type="password"]:focus,
+#promptInput:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* ===================================================== */
+/* ====================== BOTÕES ======================= */
+/* ===================================================== */
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    color: var(--background-color);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ===================================================== */
+/* ====================== SEÇÕES ======================= */
+/* ===================================================== */
+
+#key-section,
+#chat-section,
+#response-section {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 15px;
+}
+
+#key-section,
+#chat-section {
+    padding-bottom: 15px;
+}
+
+/* ===================================================== */
+/* ============ CONFIGURAÇÃO DA CHAVE API ============== */
+/* ===================================================== */
+
+.key-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.key-input-group input {
+    flex-grow: 1;
+    margin: 0;
+}
+
+#saveKeyBtn {
+    background-color: var(--primary-color);
+    color: white;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#saveKeyBtn.icon-mode {
+    font-size: 0;
+}
+
+#saveKeyBtn .edit-icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    display: none;
+}
+
+#saveKeyBtn:hover {
+    background-color: #5e8bd8;
+}
+
+#keyStatus {
+    font-size: 1.3em;
+    margin-top: 10px;
+    color: var(--text-secondary);
+    padding: 5px 0;
+}
+
+/* ===================================================== */
+/* ====================== CHAT ========================= */
+/* ===================================================== */
+
+.chat-input-group {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    gap: 8px;
+}
+
+#promptInput {
+    flex-grow: 1;
+    padding: 10px;
+    padding-right: 45px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1.8em;
+    line-height: 1.4;
+    resize: none;
+    overflow-y: hidden;
+    min-height: 40px;
+    max-height: 200px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#askBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+#askIcon {
+    width: 100%;
+    height: 100%;
+    fill: white;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+#askBtn:hover {
+    background-color: #5e8bd8;
+}
+
+#askBtn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+/* ===================================================== */
+/* ===================== RESPOSTA ====================== */
+/* ===================================================== */
+
+#response {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    min-height: 50px;
+    max-height: 350px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.5em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* Conteúdo da resposta */
+#response p {
+    margin: 0.5em 0;
+}
+
+#response h1,
+#response h2,
+#response h3 {
+    color: var(--primary-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#response ul,
+#response ol {
+    padding-left: 0;
+    margin-left: 20px;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+#response li {
+    margin-bottom: 0.5em;
+}
+
+#response pre {
+    background-color: #000;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1.3em;
+    line-height: 1.5;
+    margin: 1em 0;
+    border: 1px solid #333;
+}
+
+#response code {
+    background-color: #333;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: var(--secondary-color);
+}
+
+#response a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+#response a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================== */
+/* ==================== SCROLLBAR ====================== */
+/* ===================================================== */
+
+body::-webkit-scrollbar,
+#response::-webkit-scrollbar,
+#promptInput::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track,
+#response::-webkit-scrollbar-track,
+#promptInput::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb,
+#response::-webkit-scrollbar-thumb,
+#promptInput::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 10px;
+    border: 2px solid var(--background-color);
+}
+
+body::-webkit-scrollbar-thumb:hover,
+#response::-webkit-scrollbar-thumb:hover,
+#promptInput::-webkit-scrollbar-thumb:hover {
+    background: #fc0000;
+}
+
+/* ===================================================== */
+/* =================== BOTÕES DE UI ==================== */
+/* ===================================================== */
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--text-secondary);
+    padding: 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.icon-btn:hover {
+    color: var(--text-color);
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+#settingsBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 10;
+    font-size: 1.8em;
+}
+
+#main-content {
+    margin-top: 35px;
+}
+
+#settings-section {
+    padding-top: 10px;
+}
+
+#backBtn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1em;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+    margin-bottom: 20px;
+}
+
+#backBtn:hover {
+    background-color: #333;
+    color: var(--secondary-color);
+}
+
+/* ===================================================== */
+/* ==================== LOADING BAR ==================== */
+/* ===================================================== */
+
+#response.loading {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: linear-gradient(90deg, #2a2a2a, #3c3c3c, #2a2a2a);
+    background-size: 200% 100%;
+    animation: gradientMove 2s linear infinite;
+}
+
+@keyframes gradientMove {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
