@@ -1,6 +1,6 @@
 ## GeminAI 🤖
 
-**GeminAI** is a lightweight browser extension that brings AI assistance directly to your current tab. Designed as a "popup AI," it eliminates the need to open a new tab every time you want to interact with an AI agent.
+**GeminAI** is a lightweight browser extension that brings AI assistance directly to your current tab. Designed as a "popup AI", it eliminates the need to open a new tab every time you want to interact with an AI agent.
 
 > **Important:** GeminAI is **not intended as a replacement** for full AI platforms. It was created to provide quick, convenient access without leaving your current browsing session. Additionally, **GeminAI does not store message history** and is **designed for simplicity**.
 
